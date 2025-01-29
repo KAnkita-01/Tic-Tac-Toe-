@@ -3,76 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe - 5 Boxes</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            gap: 5px;
-            background-color: #222;
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .box {
-            width: 100px;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            font-weight: bold;
-            background-color: #ffcc00;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .box:hover {
-            background-color: #ff9900;
-        }
-        .disabled {
-            background-color: #666;
-            cursor: not-allowed;
-        }
-    </style>
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" id="board"></div>
-    <script>
-        const board = document.getElementById("board");
-        const totalBoxes = 9;
-        let playableBoxes = [];
-        let currentPlayer = "X";
-
-        while (playableBoxes.length < 5) {
-            let randomIndex = Math.floor(Math.random() * totalBoxes);
-            if (!playableBoxes.includes(randomIndex)) {
-                playableBoxes.push(randomIndex);
-            }
-        }
-
-        for (let i = 0; i < totalBoxes; i++) {
-            let box = document.createElement("div");
-            box.classList.add("box");
-            if (!playableBoxes.includes(i)) {
-                box.classList.add("disabled");
-            } else {
-                box.addEventListener("click", function () {
-                    if (this.innerText === "") {
-                        this.innerText = currentPlayer;
-                        currentPlayer = currentPlayer === "X" ? "O" : "X";
-                    }
-                });
-            }
-            board.appendChild(box);
-        }
-    </script>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="board" id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+    <button id="reset">Reset Game</button>
+    <script src="script.js"></script>
 </body>
 </html>
